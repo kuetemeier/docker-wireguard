@@ -18,7 +18,9 @@ RUN apt-get update -qq \
 	&& apt-get install -y -qq software-properties-common \
     && apt-get install -y -qq gcc-8 \
 	&& apt-get install -y -qq wireguard libmnl-dev libelf-dev build-essential pkg-config wget iproute2 net-tools git \
-	&& git clone https://git.zx2c4.com/wireguard-linux-compat
+	&& git clone https://git.zx2c4.com/wireguard-linux-compat \
+    && rm /usr/bin/gcc \
+    && ln -s /usr/bin/gcc-8 /usr/bin/gcc
 
 WORKDIR /wireguard-linux-compat/src
 RUN git checkout ${wireguard_version}
