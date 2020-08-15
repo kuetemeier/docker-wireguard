@@ -16,6 +16,7 @@ COPY start.sh /
 
 RUN apt-get update -qq \
 	&& apt-get install -y -qq software-properties-common \
+    && apt-get install -y -qq gcc-8 \
 	&& apt-get install -y -qq wireguard libmnl-dev libelf-dev build-essential pkg-config wget iproute2 net-tools git \
 	&& git clone https://git.zx2c4.com/wireguard-linux-compat
 
